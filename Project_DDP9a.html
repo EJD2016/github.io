@@ -121,17 +121,20 @@ $(document).ready(function () {
 <p>Title: “Project using R-Markdown and Leaflet to produce a web page of a map with hovering capability”<BR> Author: “Elek Dobos”<BR> Date: “February 2, 2017”<BR> output: html_document<BR></p>
 <div id="summary-description" class="section level1">
 <h1>Summary Description</h1>
-<p>A dataset was provided by NOAA - National Weather Service.<br />
-The dataset pertains to Super Storm Sandy that impacted the Eastern United States during October 2012. When a user of the web page higlights the data marker; the latitude, longitude, county name, state Name, high water mark elevation, and high water mark location description.</p>
-<p>The data was previously downloaded and read in from our default directory.</p>
-<p>Load the necessary libaries.</p>
+<p>A dataset was provided by NOAA - National Weather Service.<BR><br />
+The dataset pertains to Super Storm Sandy that impacted the Eastern United<BR> States during October 2012.When a user of the web page higlights the data marker;<BR> the latitude, longitude, county name, state Name,<BR> high water mark elevation, and high water mark location description.<BR></p>
+<p>The data was previously downloaded and read in from our default directory.<BR></p>
+<p>Load the necessary libaries.<BR></p>
 <pre class="r"><code>library(googleVis)
 library(leaflet)</code></pre>
 <p>Read in our data set.</p>
 <pre class="r"><code>stormData &lt;- read.csv(file=&quot;./FilteredHWMs.csv&quot;, header=TRUE) </code></pre>
 <p>Do not print our header data, since it takes too much space. <!-- head(stormData) --></p>
 <p>Create the hover data set for each data point. Create the pop-up dialog for the map.</p>
-<pre class="r"><code>stormData$hover &lt;- with(stormData, paste(&quot;Latitude:  &quot;,latitude_dd, &quot;&lt;BR&gt;&quot;, &quot;Longitude:  &quot;,longitude_dd , &quot;&lt;BR&gt;&quot;, &quot;County Name:  &quot;,countyName, &quot;&lt;BR&gt;&quot;, &quot;State Name:  &quot;,stateName, &quot;&lt;BR&gt;&quot;, &quot;High Water Mark Elevation:  &quot;,elev_ft, &quot;&lt;BR&gt;&quot;, &quot;High Water Mark Location Description:  &quot;,hwm_locationdescription))
+<pre class="r"><code>stormData$hover &lt;- with(stormData, paste(&quot;Latitude:  &quot;,latitude_dd, &quot;&lt;BR&gt;&quot;, 
+&quot;Longitude:  &quot;,longitude_dd , &quot;&lt;BR&gt;&quot;, &quot;County Name:  &quot;,countyName, &quot;&lt;BR&gt;&quot;, 
+&quot;State Name:  &quot;,stateName, &quot;&lt;BR&gt;&quot;, &quot;High Water Mark Elevation:  &quot;,elev_ft, &quot;&lt;BR&gt;&quot;, 
+&quot;High Water Mark Location Description:  &quot;,hwm_locationdescription))
 
 stormData %&gt;%
           leaflet() %&gt;%

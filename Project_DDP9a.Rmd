@@ -1,19 +1,21 @@
 
-Title: "Project using R-Markdown and Leaflet to produce a web page of a map with hovering capability"<BR>
+Title: "Project using R-Markdown and Leaflet to produce a web page of 
+a map with hovering capability"<BR>
 Author: "Elek Dobos"<BR>
 Date: "February 2, 2017"<BR>
 output: html_document<BR>
 
 #Summary Description
-A dataset was provided by NOAA - National Weather Service.  
-The dataset pertains to Super Storm Sandy that impacted the Eastern United States during October 2012.
-When a user of the web page higlights the data marker; the latitude, longitude, county name, state Name,
-high water mark elevation, and high water mark location description.
+A dataset was provided by NOAA - National Weather Service.<BR>  
+The dataset pertains to Super Storm Sandy that impacted the Eastern United<BR> 
+States during October 2012.When a user of the web page higlights the data marker;<BR> 
+the latitude, longitude, county name, state Name,<BR>
+high water mark elevation, and high water mark location description.<BR>
 
 
-The data was previously downloaded and read in from our default directory.
+The data was previously downloaded and read in from our default directory.<BR>
 
-Load the necessary libaries.
+Load the necessary libaries.<BR>
 ```r
 library(googleVis)
 library(leaflet)
@@ -26,9 +28,13 @@ stormData <- read.csv(file="./FilteredHWMs.csv", header=TRUE)
 Do not print our header data, since it takes too much space.
 <!-- head(stormData) -->
 
-Create the hover data set for each data point. Create the pop-up dialog for the map.
+Create the hover data set for each data point. 
+Create the pop-up dialog for the map.
 ```r
-stormData$hover <- with(stormData, paste("Latitude:  ",latitude_dd, "<BR>", "Longitude:  ",longitude_dd , "<BR>", "County Name:  ",countyName, "<BR>", "State Name:  ",stateName, "<BR>", "High Water Mark Elevation:  ",elev_ft, "<BR>", "High Water Mark Location Description:  ",hwm_locationdescription))
+stormData$hover <- with(stormData, paste("Latitude:  ",latitude_dd, "<BR>", 
+"Longitude:  ",longitude_dd , "<BR>", "County Name:  ",countyName, "<BR>", 
+"State Name:  ",stateName, "<BR>", "High Water Mark Elevation:  ",elev_ft, "<BR>", 
+"High Water Mark Location Description:  ",hwm_locationdescription))
 
 stormData %>%
           leaflet() %>%

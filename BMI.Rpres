@@ -73,5 +73,16 @@ shinyServer(<BR>
          }
 )
 
+Slide With Link for Sample User Output
+========================================================
+<a href = "https://github.com/EJD2016/github.io/blob/master/ShinyApp2.pdf">Click here for few samples runs...</a>
+
+<P>
+Other supporting files:<P>
+https://github.com/EJD2016/github.io/blob/master/BMI.Rpres<P>
+https://github.com/EJD2016/github.io/blob/master/README_DDP_Project3.txt.txt<P>
+https://github.com/EJD2016/github.io/blob/master/ui.R<P>
+https://github.com/EJD2016/github.io/blob/master/server.R<P>
+https://github.com/EJD2016/github.io/blob/master/ShinyApp2.pdf<P>
 
 

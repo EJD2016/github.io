@@ -1,0 +1,77 @@
+Shiny Application to Calculate Body Mass Index (BMI)
+========================================================
+author: Elek J. Dobos
+date: 19-Feb-2017
+autosize: true
+
+
+Summary Description
+========================================================
+
+The Shiny App will be used to calcluate the Body Mass Index (BMI) of a person.
+The user will provide two inputs into the Shiny ui.R page.  The app will utilize Imperial System units (i.e.
+inches and pounds).  The first input by the user will be their height in inches.  The second input
+will be the weight of the user in pounds. Once the height and weight are entered in the ui.R page by the user
+the user must click the submit button.  Once the submit button has been pressed by the user,
+the server.R page will calculate the users Body Mass Index (BMI).
+
+Slide With ui.R Code
+========================================================
+ui.R page
+
+<!-- Load the necessary libaries --><BR><P>
+library(shiny)<BR>
+library(knitr)<BR>
+
+shinyUI(<BR>
+  pageWithSidebar(<BR>
+    headerPanel("Body Mass Index (BMI) Calculator"),<BR><P>
+<!-- User will utilize the input controls and enter their height and weight --><BR>
+    sidebarPanel(<BR>
+      numericInput('height', 'Height (inches)', 68, min = 36, max = 200, step = 1),<BR>
+      numericInput('weight', 'Weight (pounds)', 170, min = 50, max = 500, step = 1),<BR>
+      submitButton('Submit')<BR>
+    ),<BR><P>
+    
+    Display the output to the user.<BR>
+    mainPanel(<BR>
+      h3('Results:'),<BR>
+      h4('Your Body Mass Index Calcluator is '),<BR>
+      verbatimTextOutput("bmi"),<BR>
+      h5('BMI Weight Categories:        '),<BR>
+      h5('                              '),<BR>
+      h5('                              '),<BR>
+      h5('BMI              Weight Status'),<BR>
+      h5('------------------------------'),<BR>
+      h5('Below  18.5      Underweight'),<BR>
+      h5('18.5 - 24.9      Normal'),<BR>
+      h5('25 - 29.9        Overweight'),<BR>
+      h5('30+              Obese')<BR>
+    )<BR>
+  )<BR>
+)<BR>
+
+Slide With server.R Code
+========================================================
+<!-- server.R page --><BR>
+
+<!-- Load the necessary libaries --><BR>
+library(shiny)<BR>
+library(knitr)<BR><P>
+
+<!-- Calculation of the Body Mass Index (BMI) in Imperial Units --><BR><P>
+bmi <- function(height, weight) (weight * 703) / (height ^ 2)<BR><P>
+
+
+shinyServer(<BR>
+  function(input, output) {<BR>
+    output$inputWeight <- renderPrint({input$weight})<BR>
+    output$inputHeight <- renderPrint({input$height})<BR>
+    
+<!-- Send the calculated BMI back to the user interface so it can be displayed. --> <BR><P>
+    output$bmi <- renderPrint({bmi(input$height, input$weight) })<BR>
+         }
+)
+
+
+

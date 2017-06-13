@@ -1,0 +1,51 @@
+Shiny Application for Natural Language Processing (NLP) Project 
+========================================================
+author: Elek Dobos
+date: 11-Jun-2017
+autosize: true
+
+
+Summary Description
+========================================================
+The Shiny App will use n-grams to predict the next word of a statement.  The user will input a statement into the Shiny ui.R page. Once the statement is input, the user should press the predict next word button.  By clicking this button, the statement (string) will be sent to the Shiny server.R page.  Once the submit button has been pressed by the user, the server.R page will determine the what the most likely next word is by using n-grams.  Furthermore, the application utlizes nGram information from Corpus is used as part of its processing algorithm. 
+
+
+
+Algorithm for Processing
+========================================================
+- Application will accept an input in the form of a statement from the user. 
+- Application will read in a data set of nGrams Table of Corpus in order to gain a dataset that will help the application establish frequencies and likelihoods of what the next word might be for the inputted statement. 
+- Application tidies up the data by removing unnecessary characters and blank spaces. 
+- Application then analyzes the data and puts them into categories by determining the most likely frequencies of the word using combinatorics. 
+- Application will utilize the newly created n-Grams to predict what the most likely next word in the statement string should be.
+
+
+
+Shiny App Link and Examples of Test Executions 
+========================================================
+- Shiny App Link: https://ejmd16.shinyapps.io/DS_NLP
+- https://github.com/EJD2016/github.io/tree/master/NLP/Test1.png
+- https://github.com/EJD2016/github.io/tree/master/NLP/Test2.png
+- https://github.com/EJD2016/github.io/tree/master/NLP/Test3.png
+- https://github.com/EJD2016/github.io/tree/master/NLP/Test4.png
+- https://github.com/EJD2016/github.io/tree/master/NLP/Test5.png
+
+Code: - https://github.com/EJD2016/github.io/tree/master/NLP/
+
+
+References
+========================================================
+- E. Dobos: DS10 - Swiftkey and Natural Language Processing (NLP) Project - Milestone Report
+  http://rpubs.com/EJMD16/276826<BR>
+
+- D.Jurafsky & C. Manning,Stanford University: http://web.stanford.edu/~jurafsky/NLPCourseraSlides.html<BR>
+
+- Katz's back-off model: https://en.wikipedia.org/wiki/Katz%27s_back-off_model<BR>
+- About the Corpora
+https://web.archive.org/web/20160726181056/http://www.corpora.heliohost.org:80/aboutcorpus.html
+https://web.archive.org/web/20160811062439/http://www.corpora.heliohost.org:80/index.html
+https://web.archive.org/web/20160823042329/http://www.corpora.heliohost.org:80/download.html
+
+- Natural Language Processing:  https://en.wikipedia.org/wiki/Natural_language_processing
+- Manuals for R: https://cran.r-project.org/manuals.html
+- Packages for R: https://cran.r-project.org/web/packages/available_packages_by_date.html
